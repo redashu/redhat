@@ -4,6 +4,7 @@
 
 ### Hosts 
 
-Attempt | #1 | #2 |
------ | ---- | 
-second  | hi | hello 
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
