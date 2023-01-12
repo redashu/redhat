@@ -154,3 +154,5 @@ uid=5000(admin) gid=5000(admins) groups=5000(admins) context=unconfined_u:unconf
 
 ### Note: there is no autofs configured so we are not getting home directory 
 
+### Note: by default ssh with kerberos is also configured 
+
