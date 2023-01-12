@@ -95,5 +95,62 @@ Number of entries returned 1
 ## TIme for IPA client configuration 
 
 ```
+[root@server79 ~]# yum install ipa-client -y 
+```
+
+### connecting with IPa-server
 
 ```
+[root@server79 ~]# ipa-client-install 
+Discovery was successful!
+Client hostname: server79.ashutoshh.india
+Realm: ASHUTOSHH.INDIA
+DNS Domain: ashutoshh.india
+IPA Server: idm.ashutoshh.india
+BaseDN: dc=ashutoshh,dc=india
+
+Continue to configure the system with these values? [no]: yes
+Synchronizing time with KDC...
+Attempting to sync time using ntpd.  Will timeout after 15 seconds
+User authorized to enroll computers: admin 
+Password for admin@ASHUTOSHH.INDIA: 
+Successfully retrieved CA cert
+    Subject:     CN=Certificate Authority,O=ASHUTOSHH.INDIA
+    Issuer:      CN=Certificate Authority,O=ASHUTOSHH.INDIA
+    Valid From:  2023-01-11 09:38:39
+    Valid Until: 2043-01-11 09:38:39
+
+
+```
+
+### Now testing IPA client 
+
+```
+[root@server79 ~]# kinit  admin
+Password for admin@ASHUTOSHH.INDIA: 
+[root@server79 ~]# 
+[root@server79 ~]# klist 
+Ticket cache: KEYRING:persistent:0:0
+Default principal: admin@ASHUTOSHH.INDIA
+
+Valid starting     Expires            Service principal
+01/12/23 17:51:25  01/13/23 17:51:22  krbtgt/ASHUTOSHH.INDIA@ASHUTOSHH.INDIA
+[root@server79 ~]# 
+```
+
+### try with su 
+
+```
+[root@server79 ~]# su - admin
+Last login: Thu Jan 12 17:49:35 IST 2023 on pts/0
+su: warning: cannot change directory to /home/admin: No such file or directory
+-bash-4.2$ 
+-bash-4.2$ whoami
+admin
+-bash-4.2$ id
+uid=5000(admin) gid=5000(admins) groups=5000(admins) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+-bash-4.2$ 
+```
+
+### Note: there is no autofs configured so we are not getting home directory 
+
