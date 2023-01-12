@@ -4,7 +4,7 @@
 
 ### Hosts 
 
-| First Header  | Second Header |
+| IPA Server    | IPA Client    |
 | ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
+| idm.ashutoshh.india  | server79.ashutoshh.india  |
+| 192.168.1.170  | 192.168.1.79  |
